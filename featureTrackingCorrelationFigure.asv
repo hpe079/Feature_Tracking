@@ -1,0 +1,39 @@
+function featureTrackingCorrelationFigure(x, y, A, pu, pv, C, correlationThreshold)
+% featureTrackingDiagnosticFigure - Create signal to noise figure
+
+% Start with the standard single figure
+x = x - x(1);
+y = y - y(1);
+handles = featureTrackingSingleImage(x, y, A);
+
+% Add scatter plot for the Correlation values
+set(handles.ax, 'nextplot', 'add');
+set(handles.hf, 'colormap', jet(64));
+scatter(handles.ax, x(pu), y(pv), 500, C, '.');
+
+% And pretty up a bit
+title(handles.ax, sprintf('Correlation (Threshold Used):  %s', num2str(correlationThreshold)));
+xlabel(handles.ax, 'Metres fro
+colorbar(handles.ax, 'southoutside');
+
+% 
+% 
+% figure; 
+% image (aDisplay); 
+% axis equal off tight ij
+% hold on 
+% scatter (uvA(:,1),uvA(:,2),500,C,'.')
+% title('C')
+% colormap jet 
+% colorbar ('southoutside'); 
+% caxis ([0 1]); 
+% 
+% figure; 
+% image (aDisplay); 
+% axis equal off tight ij 
+% hold on 
+% scatter (uvA(:,1), uvA(:,2),500,signal2noise, '.')
+% caxis ([0 2.5]); 
+% title ('signal2noise') 
+% colormap jet 
+% colorbar ('southoutside'); 
